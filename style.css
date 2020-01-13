@@ -1,0 +1,75 @@
+/* I love me some border-box */
+* {
+    box-sizing: border-box;
+}
+/* Horizontales Scrollen wird verhindert (falls die Breite "überläuft") */
+body {
+    overflow-x: hidden;
+}
+/* Default browser padding/margin wird gelöscht */
+html,
+body {
+    padding: 0;
+    margin: 0;
+    color: lightgrey;
+    font-family: 'Roboto Mono', monospace;
+}
+/* Flexbox gives us the flexiness we need. The top just stays put as there is no scrolling on the body due to the page never exceeding viewport height*/
+.Top {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: black;
+    font-size: 1.2em;
+    position: relative;
+    padding: .5rem;
+    border-style: solid;
+    border-width: 0px 0px 2px 0px;
+    border-color: white;
+    z-index: 10;
+    height: 60px;
+}
+/* This is our main wrapping element, it's made 100vh high to ensure it is always the correct size and then moved into place and padded with negative margin and padding*/
+.Container {
+    display: flex;
+    overflow: hidden;
+    height: 100vh;
+    margin-top: -100px;
+    padding-top: 100px;
+    position: relative;
+    width: 100%;
+    backface-visibility: hidden;
+    will-change: overflow;
+}
+/*All the scrollable sections should overflow and be whatever height they need to be. As they are flex-items (due to being inside a flex container) they could be made to stretch full height at all times if needed.
+WebKit inertia scrolling is being added here for any present/future devices that are able to make use of it.
+*/
+.Left,
+.Right {
+    overflow: auto;
+    height: auto;
+    padding: .5rem;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+}
+/* Optional – In WebKit-Browsern wird die Scrollbar ausgeblendet */
+.Left::-webkit-scrollbar,
+.Right::-webkit-scrollbar {
+    display: none;
+}
+/*  Left + Right  */
+.Left {
+    width: 50%;
+    background-color: black;
+    color: white;
+    font-size: 1.5em;
+    line-height: 1.35em;
+}
+
+.Right {
+    width: 50%;
+    background-color: black;
+    color: rgb(204, 255, 220);
+    font-size: 1.5em;
+    line-height: 1.35em;
+}
