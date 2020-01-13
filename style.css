@@ -1,7 +1,26 @@
-/* I love me some border-box */
+/* Border-box */
 * {
     box-sizing: border-box;
 }
+
+a.nav1 {
+    font-size: 1.5em;
+    line-height: 1.1;
+	color:#fff;
+   -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1.2px;
+   -webkit-text-stroke-color: white;
+}
+a.nav1:hover {
+    font-size: 1.5em;
+    line-height: 1.1;
+	text-decoration: none;
+	cursor:pointer;
+   -webkit-text-fill-color: #fff; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 0px;
+   -webkit-text-stroke-color: white;
+}
+
 /* Horizontales Scrollen wird verhindert (falls die Breite "überläuft") */
 body {
     overflow-x: hidden;
@@ -20,7 +39,7 @@ body {
     align-items: center;
     justify-content: left;
     background-color: black;
-    font-size: 1.2em;
+    font-size: 1.5em;
     position: relative;
     padding: .5rem;
     border-style: solid;
